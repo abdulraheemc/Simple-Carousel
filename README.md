@@ -73,7 +73,6 @@ default: 2000
 options: integer
 ```
 
-```
 **slidesCount**
 How many slides has to display in container(count)
 ```
