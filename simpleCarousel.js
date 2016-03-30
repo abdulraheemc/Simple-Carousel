@@ -67,13 +67,15 @@
 	$(scthis).children().first().css({width: finalWidth + "px"});
 	
 	//initializing function
-	function init(){
-		setInterval(function(){
+	var tr;
+	var init = function(){
+		var autoDuration = settings.autoPlayDuration * 1000;
+		tr = setInterval(function(){
 			if(settings.autoPlayDirection == 'right')
 			prevSlide();
 			else if(settings.autoPlayDirection == 'left')
 			nextSlide();
-		}, settings.autoPlayDuration);
+		}, autoDuration);
 	}
 
 	//events starts from here
@@ -110,11 +112,25 @@
 	if(settings.controlls === true){
 		//previous slide event will be trigger when the user clicks
 		$("#"+settings.rightNavId).on('click',function(){
+			// clears the auto play when event triggers and resets after few seconds
+			if( settings.autoPlay === true ){
+				clearInterval(tr);
+				setTimeout( function(){ 
+					init();
+				} , 6000 );
+			}
 			prevSlide();
 		});
 
 		//next slide event will be trigger when the user clicks
-		$("#"+settings.leftNavId).on('click',function(){				
+		$("#"+settings.leftNavId).on('click',function(){
+			// clears the auto play when event triggers and resets after few seconds
+			if( settings.autoPlay === true ){
+				clearInterval(tr);
+				setTimeout( function(){ 
+					init();
+				} , 6000 );
+			}
 			nextSlide();
 		});
 	} else {
