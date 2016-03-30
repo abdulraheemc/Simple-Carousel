@@ -1,0 +1,4 @@
+.container{width: 600px; height: 120px; margin: 0 25px; overflow: hidden; float: left;}
+.sc-inner{background: #454545;height: 120px; width: 180px;float:left;margin: 0 10px;}
+.sc-left{float: left; background: #efefef; padding: 6px; font-weight: bold; font-size: 35px; position: absolute; top: 40px; left: 5px;}
+.sc-right{float: left; background: #efefef; padding: 6px; font-weight: bold; font-size: 35px; position: absolute; top: 40px; left: 630px;}
