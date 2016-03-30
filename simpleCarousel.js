@@ -1,5 +1,4 @@
 
-
 /**
  * See (http://jquery.com/).
  * @name jQuery
@@ -36,12 +35,12 @@
 		
 			//slider settings
 			slidesCount: 3,
-			slideDuration: 2000,					// In Sec's
+			slideDuration: 2,					// In Sec's
 			
 			//autoplay settings
 			autoPlay: true,						// Boolean i.e., true / false
 			autoPlayDirection: 'right',			// autoplay direction from i.e., right / left
-			autoPlayDuration: 5000,				// In Sec's
+			autoPlayDuration: 5,				// In Sec's
 
 			//controlls
 			controlls: true,					// enable or disable controlls by Boolean i.e., true / false
@@ -80,13 +79,15 @@
 
 	//events starts from here
 	var applyMargin = 0;
+	var timeDuration = settings.slideDuration * 1000;
 	
 	//loads previous slide
 	function prevSlide(){
+		
 		applayMargin = $(scthis).children().children().width() + 20;
 		$(scthis).children().children().first().animate({
 			marginLeft: -applayMargin
-		}, settings.slideDuration, function(){
+		}, timeDuration, function(){
 			var clone_ele = $(scthis).children().children().first().clone();
 			$(scthis).children().children().first().remove();
 			$(scthis).children().first().append(clone_ele);
@@ -96,6 +97,7 @@
 
 	//loads next slide
 	function nextSlide(){
+		
 		applayMargin = $(scthis).children().children().width() + 20;
 		$(scthis).children().children().first().animate({}, function(){
 			var clone_ele = $(scthis).children().children().last().clone();
@@ -104,7 +106,7 @@
 			newele.children().first().css({'margin-left': -applayMargin});
 			$(scthis).children().children().first().animate({
 				marginLeft: 10,
-			}, settings.slideDuration);
+			}, timeDuration);
 			 
 		});
 	}
