@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example of Embedding YouTube Video inside Bootstrap Modal</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+    #videosList {
+     max-width: 600px; 
+      overflow: hidden;
+    }
+    
+    .video {
+      background-image: url('https://img.youtube.com/vi/nZcejtAwxz4/maxresdefault.jpg');
+      height: 330px;
+      width: 600px;
+      margin-bottom: 50px;
+    }
+    
+    /* Hide Play button + controls on iOS */
+    video::-webkit-media-controls {
+        display:none !important;
+    }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    var figure = $(".video").hover( hoverVideo, hideVideo );
+
+function hoverVideo(e) {  
+    $('video', this).get(0).play(); 
+}
+
+function hideVideo(e) {
+    $('video', this).get(0).pause(); 
+}
+});
+</script>
+</head>
+<body>
+<div class="bs-example">
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#myModal" class="" data-toggle="modal"><div id="videosList">           
+
+<div class="video">
+    <video class="thevideo" loop preload="none">
+      <source src="https://giant.gfycat.com/VerifiableTerrificHind.mp4" type="video/mp4">
+      <source src="https://giant.gfycat.com/VerifiableTerrificHind.webm" type="video/webm">
+    Your browser does not support the video tag.
+    </video>
+  </div>
+  Hover mouse over video. Desktop only [ Obviously! ;) ]
+</div></a>
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">YouTube Video</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="videosListModal">           
+                        <div class="videoModal">
+                            <video class="thevideo" autoplay >
+                              <source src="https://giant.gfycat.com/VerifiableTerrificHind.mp4" type="video/mp4">
+                              <source src="https://giant.gfycat.com/VerifiableTerrificHind.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                            </video>
+                          </div>
+                          Hover mouse over video. Desktop only [ Obviously! ;) ]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+</body>
+</html>                                		
